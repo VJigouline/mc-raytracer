@@ -30,7 +30,7 @@ const warned = new Set<string>();
 function warnOnce(message: string): void {
   if (warned.has(message)) return;
   warned.add(message);
-  console.warn(`meercad-raytracer: ${message}`);
+  console.warn(`mc-raytracer: ${message}`);
 }
 
 /** Objects that draw editing aids rather than scene content. */

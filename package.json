@@ -1,5 +1,5 @@
 {
-  "name": "meercad-raytracer",
+  "name": "mc-raytracer",
   "version": "1.0.0",
   "description": "Ray tracer for three.js scenes: renders the scene and camera of a three.js canvas into a ray traced image, progressively and in Web Workers, with a drop-in canvas renderer.",
   "keywords": ["raytracer", "ray-tracing", "path-tracing", "three", "threejs", "renderer", "webgl", "typescript"],
@@ -44,6 +44,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VJigouline/MeerCADRaytracer.git"
+    "url": "git+https://github.com/VJigouline/mc-raytracer.git"
   }
 }

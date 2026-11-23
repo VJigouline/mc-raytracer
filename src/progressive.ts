@@ -248,7 +248,7 @@ export class ProgressiveRenderer {
           // in the page instead, so the image still appears. If that fails too, give up.
           if (executor instanceof LocalExecutor || this.fellBack) throw error;
           this.fellBack = true;
-          console.warn(`meercad-raytracer: the ray tracing workers failed (${(error as Error).message}); tracing in the page instead`);
+          console.warn(`mc-raytracer: the ray tracing workers failed (${(error as Error).message}); tracing in the page instead`);
           const local = new LocalExecutor();
           this.executors.push(local);
           return run(local);

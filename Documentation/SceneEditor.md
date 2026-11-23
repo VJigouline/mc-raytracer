@@ -1,6 +1,6 @@
 # Using it with SceneEditor
 
-[SceneEditor](https://github.com/VJigouline/SceneEditor) uses MeerCADRaytracer on its **Photorealistic** tab. The ray traced image either replaces the main 3D view or appears in a separate browser window that follows the main view's camera. The same approach works for any three.js app with controls on its WebGL canvas.
+[SceneEditor](https://github.com/VJigouline/SceneEditor) uses mc-raytracer on its **Photorealistic** tab. The ray traced image either replaces the main 3D view or appears in a separate browser window that follows the main view's camera. The same approach works for any three.js app with controls on its WebGL canvas.
 
 ## How it is wired
 
@@ -16,7 +16,7 @@ The integration is in SceneEditor's `src/app/raytracer/raytrace.service.ts`, and
 
 **Settings.** Before each render the service applies the tab's settings: `samples`, `maxBounces`, `previewBlock`, `shadows`, `globalIllumination`, `toneMapping`, `toneMappingExposure`, `outputColorSpace`, the clear colour, and a pixel ratio of resolution × `devicePixelRatio`. "Same as the main view" reads the WebGL renderer's tone mapping, colour space and clear colour. Changing the number of worker threads disposes the renderer and creates a new one on the same canvas.
 
-**Workers.** `src/app/raytracer/raytracer.worker.ts` imports `meercad-raytracer/worker`. `tsconfig.worker.json` compiles it with the `webworker` library, and `angular.json` names it in `webWorkerTsConfig`. The service creates the workers with `new Worker(new URL('./raytracer.worker', import.meta.url), { type: 'module' })`.
+**Workers.** `src/app/raytracer/raytracer.worker.ts` imports `mc-raytracer/worker`. `tsconfig.worker.json` compiles it with the `webworker` library, and `angular.json` names it in `webWorkerTsConfig`. The service creates the workers with `new Worker(new URL('./raytracer.worker', import.meta.url), { type: 'module' })`.
 
 **Outside Angular's zone.** The renderer is created and driven inside `NgZone.runOutsideAngular`, so worker messages don't run change detection for every tile. Progress updates, which carry `elapsed` and `stopped`, re-enter the zone to update the tab.
 

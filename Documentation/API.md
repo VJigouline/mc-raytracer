@@ -1,6 +1,6 @@
 # API
 
-Everything below is exported from `meercad-raytracer`. The worker entry is `meercad-raytracer/worker`.
+Everything below is exported from `mc-raytracer`. The worker entry is `mc-raytracer/worker`.
 
 ## RaytracingRenderer
 
@@ -13,7 +13,7 @@ new RaytracingRenderer(parameters?: RaytracingRendererParameters)
 | Parameter | Default | Meaning |
 |---|---|---|
 | `canvas` | a new canvas | Canvas to draw into. It must support a 2D context. |
-| `workerFactory` | none | Creates a `Worker` that runs `meercad-raytracer/worker`. Without it, tracing runs in the page. |
+| `workerFactory` | none | Creates a `Worker` that runs `mc-raytracer/worker`. Without it, tracing runs in the page. |
 | `workers` | cores less one, at most 8 | Number of workers to start. |
 | `samples` | 64 | Samples per pixel to stop at. |
 | `maxBounces` | 4 | Reflection, refraction and indirect bounces per path. |

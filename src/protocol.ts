@@ -115,7 +115,7 @@ export interface MessagePortLike {
   addEventListener(type: 'message', listener: (event: MessageEvent) => void): void;
 }
 
-/** Answers requests arriving on a worker's global scope. Called by the `meercad-raytracer/worker` entry. */
+/** Answers requests arriving on a worker's global scope. Called by the `mc-raytracer/worker` entry. */
 export function installTileWorker(scope: MessagePortLike): void {
   const handle = createTileHandler();
   scope.addEventListener('message', event => {

@@ -11,7 +11,7 @@ export interface RaytracingRendererParameters extends RaytraceOptions {
   /** Canvas to draw into. One is created when omitted. */
   canvas?: HTMLCanvasElement;
   /**
-   * Creates a Web Worker running the `meercad-raytracer/worker` entry. Without it, rendering
+   * Creates a Web Worker running the `mc-raytracer/worker` entry. Without it, rendering
    * runs in the page, a tile at a time.
    */
   workerFactory?: () => WorkerLike;
@@ -94,7 +94,7 @@ export class RaytracingRenderer {
   constructor(parameters: RaytracingRendererParameters = {}) {
     this.domElement = parameters.canvas ?? document.createElement('canvas');
     const context = this.domElement.getContext('2d');
-    if (!context) throw new Error('meercad-raytracer: the canvas has no 2D context');
+    if (!context) throw new Error('mc-raytracer: the canvas has no 2D context');
     this.context = context;
     this.width = this.cssWidth = this.domElement.width;
     this.height = this.cssHeight = this.domElement.height;
@@ -158,7 +158,7 @@ export class RaytracingRenderer {
   setCanvas(canvas: HTMLCanvasElement): void {
     if (canvas === this.domElement) return;
     const context = canvas.getContext('2d');
-    if (!context) throw new Error('meercad-raytracer: the canvas has no 2D context');
+    if (!context) throw new Error('mc-raytracer: the canvas has no 2D context');
     this.stop();
     this.domElement = canvas;
     this.context = context;
@@ -298,7 +298,7 @@ export class RaytracingRenderer {
     }, frame => this.draw(frame)).catch((error: unknown) => {
       // Report a failed render instead of leaving an unhandled rejection and an empty canvas.
       const message = error instanceof Error ? error.message : String(error);
-      console.error('meercad-raytracer: ray tracing failed:', error);
+      console.error('mc-raytracer: ray tracing failed:', error);
       this.report({ ...this.lastProgress, done: false, stopped: true, error: message, elapsed: Date.now() - this.startTime });
       return false;
     });

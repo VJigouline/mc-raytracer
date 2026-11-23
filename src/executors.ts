@@ -50,7 +50,7 @@ export interface WorkerLike {
   terminate(): void;
 }
 
-/** Renders in a Web Worker that runs the `meercad-raytracer/worker` entry. */
+/** Renders in a Web Worker that runs the `mc-raytracer/worker` entry. */
 export class WorkerExecutor implements TileExecutor {
   readonly textures = new Set<number>();
   // Two tiles in flight hide the message round trip.

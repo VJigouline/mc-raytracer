@@ -1,4 +1,4 @@
-# MeerCADRaytracer
+# mc-raytracer
 
 A ray tracer for [three.js](https://threejs.org/) scenes, written in TypeScript. It takes the scene and camera you already draw on a three.js canvas and renders a ray traced image of them, with shadows, reflections, refraction and, optionally, global illumination.
 
@@ -15,7 +15,7 @@ It shades like three.js. Materials, lights, tone mapping and colour spaces follo
 The package is not on the npm registry. Install it from GitHub:
 
 ```sh
-npm install github:VJigouline/MeerCADRaytracer
+npm install github:VJigouline/mc-raytracer
 ```
 
 `three` (r160 or later) is a peer dependency. The package builds itself on install.
@@ -23,7 +23,7 @@ npm install github:VJigouline/MeerCADRaytracer
 ## Use it in place of the WebGL canvas
 
 ```ts
-import { RaytracingRenderer } from 'meercad-raytracer';
+import { RaytracingRenderer } from 'mc-raytracer';
 
 const renderer = new RaytracingRenderer({
   // Optional, but much faster: a worker that runs the library's worker entry.
@@ -39,7 +39,7 @@ renderer.render(scene, camera);   // starts a progressive ray trace and returns 
 `raytracer.worker.ts` needs one line:
 
 ```ts
-import 'meercad-raytracer/worker';
+import 'mc-raytracer/worker';
 ```
 
 To show the ray traced image over an existing WebGL view, keeping its controls, see [Using it with SceneEditor](Documentation/SceneEditor.md).
@@ -47,7 +47,7 @@ To show the ray traced image over an existing WebGL view, keeping its controls, 
 ## Render an image without a canvas
 
 ```ts
-import { raytrace } from 'meercad-raytracer';
+import { raytrace } from 'mc-raytracer';
 
 const { width, height, data } = raytrace(scene, camera, 640, 480, { samples: 64 });
 // data: RGBA bytes, ready for new ImageData(data, width, height)

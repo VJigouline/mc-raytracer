@@ -3,7 +3,7 @@
 ## 1. Install
 
 ```sh
-npm install three github:VJigouline/MeerCADRaytracer
+npm install three github:VJigouline/mc-raytracer
 ```
 
 ## 2. Add a worker
@@ -12,7 +12,7 @@ Rays are traced fastest in Web Workers, one per processor core. Add a worker mod
 
 ```ts
 // raytracer.worker.ts
-import 'meercad-raytracer/worker';
+import 'mc-raytracer/worker';
 ```
 
 Bundlers such as Vite, webpack 5, esbuild and the Angular CLI recognise `new Worker(new URL('./raytracer.worker', import.meta.url), { type: 'module' })` and bundle the worker for you. In the Angular CLI, add a `webWorkerTsConfig` to the build options, as `ng generate web-worker` does.
@@ -23,7 +23,7 @@ You can skip this step. Without workers, rendering runs in the page, one tile pe
 
 ```ts
 import * as THREE from 'three';
-import { RaytracingRenderer } from 'meercad-raytracer';
+import { RaytracingRenderer } from 'mc-raytracer';
 
 const scene = new THREE.Scene();
 scene.add(new THREE.Mesh(new THREE.TorusKnotGeometry(1, 0.3, 128, 16), new THREE.MeshStandardMaterial({ color: 0xcc3333, roughness: 0.3 })));
